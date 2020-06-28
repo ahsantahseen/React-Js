@@ -12,10 +12,10 @@ class App extends Component {
       {name:"UfONE",yrs: 25}
   ]
   }
-  eventHandler=()=>{
+  eventHandler=(newName)=>{
     // console.log('it was clicked');
     let oldState = [...this.state.Companies];
-    oldState[0] = {name:'Ahsan',yrs:30};
+    oldState[0] = {name: newName ,yrs:30};
     this.setState({Companies:oldState});
   }
 
@@ -23,10 +23,10 @@ class App extends Component {
     return (
       <div className="App"> 
         <h1>Hello This is a react app</h1>
-        <button onClick={this.eventHandler}>Click Me!</button>
+        <button onClick={this.eventHandler.bind(this, 'Ahsan')}>Click Me!</button>
         <Ahsan />
-        <Tag click={this.eventHandler} name={this.state.Companies[0].name} yrs={this.state.Companies[0].yrs}/>
-        <Tag name={this.state.Companies[1].name} yrs={this.state.Companies[1].yrs}>but they still stink</Tag>
+        <Tag name={this.state.Companies[0].name} yrs={this.state.Companies[0].yrs}/>
+        <Tag click={this.eventHandler.bind(this, 'POPO')} name={this.state.Companies[1].name} yrs={this.state.Companies[1].yrs}>but they still stink</Tag>
       </div>
     );
   }
