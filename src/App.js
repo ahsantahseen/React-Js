@@ -4,6 +4,7 @@ import './App.css';
 import './Ahsan/Ahsan';
 import Ahsan from './Ahsan/Ahsan';
 import Tag from './Ahsan/Tag';
+import './Ahsan/Tag.css'
 
 class App extends Component {
   state={
@@ -18,6 +19,12 @@ class App extends Component {
     oldState[0] = {name: newName ,yrs:30};
     this.setState({Companies:oldState});
   }
+  nameChanger =(event)=>{
+    let oldState = [...this.state.Companies];
+    oldState[0] = {name: event.target.value,yrs:30};
+    
+    this.setState({Companies:oldState});
+  }
 
   render() {
     return (
@@ -25,8 +32,8 @@ class App extends Component {
         <h1>Hello This is a react app</h1>
         <button onClick={this.eventHandler.bind(this, 'Ahsan')}>Click Me!</button>
         <Ahsan />
-        <Tag name={this.state.Companies[0].name} yrs={this.state.Companies[0].yrs}/>
-        <Tag click={this.eventHandler.bind(this, 'POPO')} name={this.state.Companies[1].name} yrs={this.state.Companies[1].yrs}>but they still stink</Tag>
+        <Tag changer={this.nameChanger}name={this.state.Companies[0].name} yrs={this.state.Companies[0].yrs}/>
+        <Tag changer={this.nameChanger}click={this.eventHandler.bind(this, 'POPO')} name={this.state.Companies[1].name} yrs={this.state.Companies[1].yrs}>but they still stink</Tag>
       </div>
     );
   }
