@@ -15,7 +15,7 @@ class App extends Component {
   eventHandler=()=>{
     // console.log('it was clicked');
     let oldState = [...this.state.Companies];
-    oldState[1] = {name:'Ahsan',yrs:30};
+    oldState[0] = {name:'Ahsan',yrs:30};
     this.setState({Companies:oldState});
   }
 
