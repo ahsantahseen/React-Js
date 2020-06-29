@@ -27,10 +27,18 @@ class App extends Component {
   }
 
   render() {
+    const inlineStyle={
+       width:'20%',
+       border:'2px solid #eee',
+       backgroundColor:'blue',
+       cursor:'pointer',
+       
+
+    }
     return (
       <div className="App"> 
         <h1>Hello This is a react app</h1>
-        <button onClick={this.eventHandler.bind(this, 'Ahsan')}>Click Me!</button>
+        <button style={inlineStyle} onClick={this.eventHandler.bind(this, 'Ahsan')}>Click Me!</button>
         <Ahsan />
         <Tag changer={this.nameChanger}name={this.state.Companies[0].name} yrs={this.state.Companies[0].yrs}/>
         <Tag changer={this.nameChanger}click={this.eventHandler.bind(this, 'POPO')} name={this.state.Companies[1].name} yrs={this.state.Companies[1].yrs}>but they still stink</Tag>
