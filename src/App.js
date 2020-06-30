@@ -40,23 +40,12 @@ class App extends Component {
     };
     let company = null;
     if (this.state.showCompanies) {
-      company=(
+      company = (
         <div>
           <Ahsan />
-
-          <Tag
-            changer={this.nameChanger}
-            name={this.state.Companies[0].name}
-            yrs={this.state.Companies[0].yrs}
-          />
-          <Tag
-            changer={this.nameChanger}
-            click={this.eventHandler.bind(this, "POPO")}
-            name={this.state.Companies[1].name}
-            yrs={this.state.Companies[1].yrs}
-          >
-            but they still stink
-          </Tag>
+          {this.state.Companies.map((showFunc) => {
+            return <Tag name={showFunc.name} yrs={showFunc.yrs}></Tag>;
+          })}
         </div>
       );
     }
