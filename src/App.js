@@ -20,11 +20,18 @@ class App extends Component {
     oldState[0] = { name: newName, yrs: 30 };
     this.setState({ Companies: oldState });
   };
-  nameChanger = (event) => {
-    let oldState = [...this.state.Companies];
-    oldState[0] = { name: event.target.value, yrs: 30 };
+  nameChanger = (event, id) => {
+    const CompaniesIndex = this.state.Companies.findIndex((p) => {
+      return (p.key = id);
+    });
 
-    this.setState({ Companies: oldState });
+    const Companies = { ...this.state.Companies[CompaniesIndex] };
+
+    Companies.name = event.target.value;
+
+    const Company = [...this.state.Companies];
+    Company[CompaniesIndex] = Companies;
+    this.setState({ Companies: Company });
   };
   handlerfunc = () => {
     const doesShow = this.state.showCompanies;
@@ -50,10 +57,11 @@ class App extends Component {
           {this.state.Companies.map((Companies, CompanyIndex) => {
             return (
               <Tag
-                click={()=> this.deleteCompaniesHandler(CompanyIndex)}
+                click={() => this.deleteCompaniesHandler(CompanyIndex)}
                 name={Companies.name}
                 yrs={Companies.yrs}
                 key={Companies.key}
+                change={(event) => this.nameChanger(event, Companies.key)}
               ></Tag>
             );
           })}

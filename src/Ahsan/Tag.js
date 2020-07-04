@@ -9,7 +9,7 @@ const Tag = (props) => {
         {""}
       </h3>
       <p>{props.children}</p>
-      <input onChange={props.changer} value={props.name}></input>
+      <input onChange={props.change} value={props.name}></input>
     </div>
   );
 };
