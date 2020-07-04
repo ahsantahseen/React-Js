@@ -30,7 +30,11 @@ class App extends Component {
     const doesShow = this.state.showCompanies;
     this.setState({ showCompanies: !doesShow });
   };
-
+  deleteCompaniesHandler = (CompanyIndex) =>{
+    const companies=this.state.Companies;
+    companies.splice(CompanyIndex,1);
+  this.setState({companies:companies})
+  }
   render() {
     const inlineStyle = {
       width: "20%",
@@ -42,9 +46,9 @@ class App extends Component {
     if (this.state.showCompanies) {
       company = (
         <div>
-          <Ahsan />
+          <Ahsan  />
           {this.state.Companies.map((showFunc) => {
-            return <Tag name={showFunc.name} yrs={showFunc.yrs}></Tag>;
+            return <Tag click={this.deleteCompaniesHandler} name={showFunc.name} yrs={showFunc.yrs}></Tag>;
           })}
         </div>
       );
