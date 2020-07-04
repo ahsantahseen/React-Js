@@ -9,8 +9,8 @@ import "./Ahsan/Tag.css";
 class App extends Component {
   state = {
     Companies: [
-      { name: "Jazz", yrs: 12 },
-      { name: "UfONE", yrs: 25 },
+      { key: "CP01", name: "Jazz", yrs: 12 },
+      { key: "CP02", name: "UfONE", yrs: 25 },
     ],
     showCompanies: false,
   };
@@ -33,7 +33,7 @@ class App extends Component {
   deleteCompaniesHandler = (CompanyIndex) => {
     const companies = [...this.state.Companies];
     companies.splice(CompanyIndex, 1);
-    this.setState({ companies: companies });
+    this.setState({ Companies: companies });
   };
   render() {
     const inlineStyle = {
@@ -47,12 +47,13 @@ class App extends Component {
       company = (
         <div>
           <Ahsan />
-          {this.state.Companies.map((showFunc, CompanyIndex) => {
+          {this.state.Companies.map((Companies, CompanyIndex) => {
             return (
               <Tag
-                click={this.deleteCompaniesHandler(CompanyIndex)}
-                name={showFunc.name}
-                yrs={showFunc.yrs}
+                click={()=> this.deleteCompaniesHandler(CompanyIndex)}
+                name={Companies.name}
+                yrs={Companies.yrs}
+                key={Companies.key}
               ></Tag>
             );
           })}
