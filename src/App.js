@@ -47,10 +47,10 @@ class App extends Component {
       company = (
         <div>
           <Ahsan />
-          {this.state.Companies.map((showFunc) => {
+          {this.state.Companies.map((showFunc, CompanyIndex) => {
             return (
               <Tag
-                click={this.deleteCompaniesHandler}
+                click={this.deleteCompaniesHandler(CompanyIndex)}
                 name={showFunc.name}
                 yrs={showFunc.yrs}
               ></Tag>
