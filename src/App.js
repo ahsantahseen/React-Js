@@ -11,6 +11,7 @@ class App extends Component {
     Companies: [
       { key: "CP01", name: "Jazz", yrs: 12 },
       { key: "CP02", name: "UfONE", yrs: 25 },
+      { key: "CP003", name: "Bykea", yrs: 14 },
     ],
     showCompanies: false,
   };
@@ -45,17 +46,16 @@ class App extends Component {
   render() {
     const inlineStyle = {
       width: "10%",
-      height:"20%",
+      height: "20%",
       border: "2px solid #eee",
       backgroundColor: "green",
-      color:"white",
+      color: "white",
       cursor: "pointer",
     };
     let company = null;
     if (this.state.showCompanies) {
       company = (
         <div>
-          <Ahsan />
           {this.state.Companies.map((Companies, CompanyIndex) => {
             return (
               <Tag
@@ -69,11 +69,22 @@ class App extends Component {
           })}
         </div>
       );
-      inlineStyle.backgroundColor='red';
+      inlineStyle.backgroundColor = "red";
+    }
+    const classes = [];
+    if (this.state.Companies.length <= 2) {
+      classes.push("style1");
+    }
+    if (this.state.Companies.length <= 1) {
+      classes.push("style2");
+    }
+    if (this.state.Companies.length == 0) {
+      classes.push("style3");
     }
     return (
       <div className="App">
         <h1>Hello This is a react app</h1>
+        <p className={classes.join(' ')} >Hello! I'm Ahsan and i made this custom component</p>
         <button style={inlineStyle} onClick={this.handlerfunc}>
           Click Me!
         </button>
