@@ -1,4 +1,5 @@
 import React from "react";
+import Radium from "radium";
 import "./Tag.css";
 
 const Tag = (props) => {
@@ -14,4 +15,4 @@ const Tag = (props) => {
   );
 };
 
-export default Tag;
+export default Radium(Tag);

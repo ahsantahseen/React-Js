@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-
+import Radium from "radium";
 import "./App.css";
 import "./Ahsan/Ahsan";
-import Ahsan from "./Ahsan/Ahsan";
+
 import Tag from "./Ahsan/Tag";
 import "./Ahsan/Tag.css";
 
@@ -51,6 +51,10 @@ class App extends Component {
       backgroundColor: "green",
       color: "white",
       cursor: "pointer",
+      ":hover": {
+        backgroundColor: "lightgreen",
+        color: "black",
+      },
     };
     let company = null;
     if (this.state.showCompanies) {
@@ -70,6 +74,10 @@ class App extends Component {
         </div>
       );
       inlineStyle.backgroundColor = "red";
+      inlineStyle[":hover"] = {
+        backgroundColor: "salmon",
+        color: "black",
+      };
     }
     const classes = [];
     if (this.state.Companies.length <= 2) {
@@ -78,13 +86,15 @@ class App extends Component {
     if (this.state.Companies.length <= 1) {
       classes.push("style2");
     }
-    if (this.state.Companies.length == 0) {
+    if (this.state.Companies.length === 0) {
       classes.push("style3");
     }
     return (
       <div className="App">
         <h1>Hello This is a react app</h1>
-        <p className={classes.join(' ')} >Hello! I'm Ahsan and i made this custom component</p>
+        <p className={classes.join(" ")}>
+          Hello! I'm Ahsan and i made this custom component
+        </p>
         <button style={inlineStyle} onClick={this.handlerfunc}>
           Click Me!
         </button>
@@ -94,4 +104,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Radium(App);
