@@ -32,15 +32,15 @@
 }
 .style1 {
   color: blue;
-  font-size: large;
+  font-size: larger;
 }
 .style2 {
   color: green;
-  
-  font-size: larger;
+
+  font-size: x-large;
 }
 .style3 {
   color: red;
-  
-  font-size: x-large;
+
+  font-size: xx-large;
 }
