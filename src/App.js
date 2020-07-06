@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
+
 import "./App.css";
 import "./Ahsan/Ahsan";
 import Ahsan from "./Ahsan/Ahsan";
@@ -44,9 +44,11 @@ class App extends Component {
   };
   render() {
     const inlineStyle = {
-      width: "20%",
+      width: "10%",
+      height:"20%",
       border: "2px solid #eee",
-      backgroundColor: "blue",
+      backgroundColor: "green",
+      color:"white",
       cursor: "pointer",
     };
     let company = null;
@@ -67,6 +69,7 @@ class App extends Component {
           })}
         </div>
       );
+      inlineStyle.backgroundColor='red';
     }
     return (
       <div className="App">
