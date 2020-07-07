@@ -3,8 +3,11 @@ import Radium from "radium";
 import "./Tag.css";
 
 const Tag = (props) => {
+  const style = {
+    "@media(min-width:500px)": { width: "450px" },
+  };
   return (
-    <div className="card">
+    <div className="card" style={style}>
       <h3 onClick={props.click}>
         {props.name} is {props.yrs} years old company
         {""}
